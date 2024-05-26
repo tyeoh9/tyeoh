@@ -1,18 +1,13 @@
 ---
 layout: page
-title: About
+title: about me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+i'm in my fourth year at uc berkeley studying [electrical engineering and computer science](https://eecs.berkeley.edu/) and graduating in the spring of 2025.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+i'm open to opportunities in software engineering, machine learning, and robotics.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+please feel free to contact me at tyeoh@berkeley.edu or connect with me on [linkedin](https://www.linkedin.com/in/yeoh)
 
-
-[jekyll-organization]: https://github.com/jekyll
+last updated: 2024-05-26
