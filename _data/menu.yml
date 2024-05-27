@@ -17,8 +17,8 @@ entries:
   - title: projects
     url: projects
 
-  - title: work
-    url: work
+  - title: timeline
+    url: timeline
 
   - title: all posts
     post_list:
