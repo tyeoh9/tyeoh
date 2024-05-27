@@ -12,7 +12,7 @@ permalink: /timeline/
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*advised by [professor park sinchaisri](https://haas.berkeley.edu/faculty/park-sinchaisri/)*
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*developing ml tools for the multihoming project*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*developing ml tools for the [multihoming project](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4502968)*
 
 <ins>08-2023</ins> started school at [**uc berkeley**](https://www.berkeley.edu/)
 
