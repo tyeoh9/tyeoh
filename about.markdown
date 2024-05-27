@@ -9,5 +9,3 @@ i'm in my fourth year at uc berkeley studying [electrical engineering and comput
 i'm open to opportunities in software engineering, machine learning, and robotics.
 
 please feel free to contact me at tyeoh@berkeley.edu or connect with me on [linkedin](https://www.linkedin.com/in/yeoh)
-
-last updated: 2024-05-26
