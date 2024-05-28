@@ -30,7 +30,7 @@ date_format: "%Y-%m-%d"
 
 # Build settings
 # theme: no-style-please
-remote_theme: no-style-please
+remote_theme: riggraz/no-style-please
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
