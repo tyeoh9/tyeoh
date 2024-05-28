@@ -22,15 +22,16 @@ title: thomas yeoh
 email: tyeoh@berkeley.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Personal Website
-baseurl: "tyeoh" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  tyeoh9
 
 # Build settings
-# theme: no-style-please
+theme: no-style-please
 remote_theme: riggraz/no-style-please
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.

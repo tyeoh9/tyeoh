@@ -106,6 +106,7 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.3.3)
   jekyll-feed (~> 0.12)
+  jekyll-seo-tag
   minima (~> 2.5)
   no-style-please
   tzinfo (>= 1, < 3)
