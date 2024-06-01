@@ -22,9 +22,9 @@ title: thomas yeoh
 email: tyeoh@berkeley.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Personal Website
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: /tyeoh/ # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  tyeoh9
+github_username: tyeoh9
 
 date_format: "%Y-%m-%d"
 
