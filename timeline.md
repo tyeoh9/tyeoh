@@ -4,7 +4,7 @@ title: timeline
 permalink: /timeline/
 ---
 
-<ins>05-2024</ins> summer internship at [**keysight technologies**](http://www.keysight.com/)
+<ins>05-2024</ins> summer internship at [**keysight**](http://www.keysight.com/)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*r&d software engineer intern*
 
