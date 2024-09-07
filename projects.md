@@ -4,4 +4,4 @@ title: projects
 permalink: /projects/
 ---
 
-in progress...
+- [Colorizing the Prokudin-Gorskii photo collection](/projects/cs180/project1/project1.md)

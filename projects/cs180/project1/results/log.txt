@@ -1,0 +1,70 @@
+monastery
+Red channel:        (2, 3)
+Green channel:      (2, -3)
+Total time elapsed: 0.48s
+
+tobolsk
+Red channel:        (3, 6)
+Green channel:      (3, 3)
+Total time elapsed: 0.44s
+
+cathedral
+Red channel:        (3, 12)
+Green channel:      (2, 5)
+Total time elapsed: 0.43s
+
+church
+Red channel:        (-4, 58)
+Green channel:      (4, 25)
+Total time elapsed: 3.45s
+
+three_generations
+Red channel:        (11, 112)
+Green channel:      (14, 53)
+Total time elapsed: 3.48s
+
+melons
+Red channel:        (13, 178)
+Green channel:      (10, 81)
+Total time elapsed: 3.27s
+
+onion_church
+Red channel:        (36, 108)
+Green channel:      (26, 51)
+Total time elapsed: 3.28s
+
+train
+Red channel:        (32, 87)
+Green channel:      (5, 42)
+Total time elapsed: 3.25s
+
+icon
+Red channel:        (23, 89)
+Green channel:      (17, 41)
+Total time elapsed: 3.28s
+
+self_portrait
+Red channel:        (37, 176)
+Green channel:      (29, 78)
+Total time elapsed: 3.37s
+
+harvesters
+Red channel:        (13, 124)
+Green channel:      (16, 59)
+Total time elapsed: 3.17s
+
+sculpture
+Red channel:        (-27, 140)
+Green channel:      (-11, 33)
+Total time elapsed: 3.33s
+
+lady
+Red channel:        (12, 111)
+Green channel:      (9, 51)
+Total time elapsed: 3.26s
+
+emir
+Red channel:        (-305, 93)
+Green channel:      (24, 49)
+Total time elapsed: 3.63s
+
