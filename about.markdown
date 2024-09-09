@@ -1,7 +1,7 @@
 ---
 layout: page
 title: about me
-permalink: /projects/cs180/project1/project1.md/
+permalink: /about/
 ---
 
 i'm from malaysia and currently in my fourth year at uc berkeley, studying electrical engineering and computer science (eecs) in the college of engineering. currently, i'm involved in undergraduate research at berkeley's haas school of business, where i am developing/adapting machine learning tools. i will be graduating in the spring of 2025.
