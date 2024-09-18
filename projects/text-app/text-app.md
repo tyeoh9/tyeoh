@@ -8,11 +8,11 @@ upload your dataset, select your input and target columns, train model, and pred
 
 ## app workflow
 
-![upload page](./screenshots/appflowchart.svg)
+![upload page](./screenshots/AppFlowchart.svg)
 
 ## data pipeline + classification workflow
 
-![upload page](./screenshots/classificationflowchart.svg)
+![upload page](./screenshots/ClassificationFlowchart.svg)
 
 ## app preview
 
