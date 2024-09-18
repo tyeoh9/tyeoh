@@ -4,4 +4,6 @@ title: projects
 permalink: /projects/
 ---
 
-- [Colorizing the Prokudin-Gorskii photo collection](/projects/cs180/project1/project1.md)
+- [colorizing the prokudin-gorskii photo collection](/projects/cs180/project1/project1.md)
+- [text classification application](/projects/text-app/text-app.md)
+
