@@ -4,6 +4,15 @@ title: image warping and mosaicing
 permalink: /projects/cs180/project4/
 ---
 
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/blended_mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>a mosaic of the heyns reading room at uc berkeley</i>
+</div>
+
 ## part a:
 
 ### background
@@ -174,6 +183,141 @@ street:
 <div class="image-wrapper">
     <i>original right image vs warped image</i>
 </div>
+
+### image rectification
+
+to test that our warp function is working so far, i perform rectification on some other images that i took and some from the web. i select corner points from the object in the image that i would like to rectify and since i know the ground plane rectification, i can select the corner points that will be rectified. below are some of the original images, the corresponding points, as well as the rectified (cropped) images.
+
+#### art gallery (weitman gallery, washington university):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/gallery.jpg" style="height: 350px"/>
+        <img src="rectification/gallery_pts.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image vs original image with points</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/gallery_rect.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>rectified image of the artwork on the wall</i>
+</div>
+
+#### taking a peek at my roommate's homework:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/homework.jpg" style="height: 350px"/>
+        <img src="rectification/homework_pts.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image vs original image with points</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/homework_rect.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>a sneaky rectified image of my roommate's homework</i>
+</div>
+
+#### berkeley magazine on the coffee table:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/magazine.jpg" style="height: 350px"/>
+        <img src="rectification/magazine_pts.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image vs original image with points</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="rectification/magazine_rect.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>rectified version of berkeley engineering magazine</i>
+</div>
+
+now that we know our *warpImage()* function works, we can move on to creating our image mosaics of the photographs we took before!
+
+### blend the images into a mosaic
+
+using our previously warped images (tennis courts, heyns reading room, and my street view), we can stitch those warped images together, perform some blending, and we will end up with a panorama!
+
+below are the results of placing the warped (left and right) images beside the (unwarped) center image via translation onto a large canvas:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="tennis/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of tennis courts without blending</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of heyns reading room without blending</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="street/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of the street without blending</i>
+</div>
+
+the results are pretty good! we can see that the images are aligned. but, there's an issue. the edges where the separate images meet are very strong and we can tell that these are separate image put side-by-side, not a mosaic. 
+
+to fix this, we use what we did in the [image blending project](../project2/project2.md) and use a level-2 laplacian pyramid to blend the seams together. i first blend the warped left image to the center, then the warped right image to the center, and then blend both of those blended images together. the results are here:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="tennis/blended_mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of tennis courts</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/blended_mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of heyns reading room</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="street/blended_mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>mosaic of the street</i>
+</div>
+
+you can see the huge improvement in the images! the seams are now gone - we have created panoramas from 3 different photographs.
 
 <style>
     .image-gallery {
