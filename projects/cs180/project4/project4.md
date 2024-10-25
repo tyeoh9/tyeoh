@@ -288,7 +288,28 @@ below are the results of placing the warped (left and right) images beside the (
 
 the results are pretty good! we can see that the images are aligned. but, there's an issue. the edges where the separate images meet are very strong and we can tell that these are separate image put side-by-side, not a mosaic. 
 
-to fix this, we use what we did in the [image blending project](../project2/project2.md) and use a level-2 laplacian pyramid to blend the seams together. i first blend the warped left image to the center, then the warped right image to the center, and then blend both of those blended images together. the results are here:
+to fix this, we use what we did in the [image blending project](../project2/project2.md) and use a level-2 laplacian pyramid to blend the seams together. i first blend the warped left image to the center, then the warped right image to the center, and then blend both of those blended images together. here are the level-2 laplacian pyramid masks i used for the heyns panoramas:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/mask_left.jpg" style="height: 250px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/mask_mid.jpg" style="height: 250px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/mask_right.jpg" style="height: 250px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>masks of used for blending the heyns images</i>
+</div>
+
+#### the final results are here:
 
 <div class="image-wrapper">
     <div class="image-container">
