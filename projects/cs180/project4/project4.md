@@ -13,7 +13,7 @@ permalink: /projects/cs180/project4/
     <i>a mosaic of the heyns reading room at uc berkeley</i>
 </div>
 
-## part a:
+## part a: 
 
 ### background
 
@@ -317,7 +317,7 @@ to fix this, we use what we did in the [image blending project](../project2/proj
     </div>
 </div>
 <div class="image-wrapper">
-    <i>mosaic of tennis courts</i>
+    <i>mosaic of tennis courts [note: the reason for the distinct color difference is due to the images itself and the lighting of when they were taken]</i>
 </div>
 
 <div class="image-wrapper">
@@ -339,6 +339,252 @@ to fix this, we use what we did in the [image blending project](../project2/proj
 </div>
 
 you can see the huge improvement in the images! the seams are now gone - we have created panoramas from 3 different photographs.
+
+## part b: feature matching and autostitching
+
+even though our mosaics turned out pretty nice, much of the process is very manual. picking the correspondence points itself takes a while. in this part of the project, i will implement feature matching and autostitching to create our mosaics for us.
+
+### corner detection
+
+similar to how i manually selected the points, we want to select corner points by using the harris interest point detector. the harris interest point detector uses peaks in the matrix to find corners.
+
+below are images of harris points overlaid onto my photos:
+
+#### no threshold (all harris points):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="harris_points/left_pts_no_thresh.jpg" style="height: 350px"/>
+        <img src="harris_points/mid_pts_no_thresh.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>heyns (left), heyns (mid)</i>
+</div>
+
+but you can see that there are way too many points. let's set a threshold to only keep the top n points.
+
+#### threshold = 2000:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="harris_points/left_pts_tresh2000.jpg" style="height: 350px"/>
+        <img src="harris_points/mid_pts_thresh2000.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>heyns (left), heyns (mid)</i>
+</div>
+
+#### threshold = 1000:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="harris_points/left_pts_tresh1000.jpg" style="height: 350px"/>
+        <img src="harris_points/mid_pts_thresh1000.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>heyns (left), heyns (mid)</i>
+</div>
+
+using a threshold to filter out the top n corners is a good idea but it is not very sophisticated. you can see in our above images that our corners are not very spaced out; we get clusters spread out sparsely throughout the image.
+
+### adaptive non-maximal suppression (anms)
+
+with the harris interest points, we get lots of redudant information since many points are clustered together. to space out the points a little more, we use adaptive non-maximal suppression (anms) to make our feature matching more effective.
+
+i implemented the algorithm from section 3 of the paper ["multi-image matching using multi-scale oriented patches" by brown et al.](https://inst.eecs.berkeley.edu/~cs180/fa24/hw/proj4/Papers/MOPS.pdf).
+
+you can see my anms points overlaid onto the images below. you can observe that the points are a lot more evenly spread out compared to just using the threshold:
+
+#### 500 anms points:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="anms/im_left_ANMS_n500.jpg" style="height: 350px"/>
+        <img src="anms/im_mid_ANMS_n500.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>heyns (left), heyns (mid)</i>
+</div>
+
+### extracting feature descriptors
+
+before we can match our correspondence points, we need to get some context for each point and to do this, we use feature descriptors. for each points, we get its feature descriptor which is a sample of 40x40 pixels centered around that pixel and downsize (space it out) by s=5 (resulting sample will be 8x8). after we do this, we have to bias/gain-normalize our descriptors. here are some of the descriptors from the heyns reading room images.
+
+#### point at (x=683, y=546):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="feature_descriptors/bw_window_x683_y546.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/bw_descriptor_x683_y546.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_window_x683_y546.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_descriptor_x683_y546.jpg" style="height: 200px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>40x40 sample window vs 8x8 descriptor (in both b&w and color)</i>
+</div>
+
+#### point at (x=856, y=1041):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="feature_descriptors/bw_window_x856_y1041.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/bw_descriptor_x856_y1041.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_window_x856_y1041.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_descriptor_x856_y1041.jpg" style="height: 200px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>40x40 sample window vs 8x8 descriptor (in both b&w and color)</i>
+</div>
+
+#### point at (x=893, y=930):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="feature_descriptors/bw_window_x893_y930.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/bw_descriptor_x893_y930.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_window_x893_y930.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_descriptor_x893_y930.jpg" style="height: 200px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>40x40 sample window vs 8x8 descriptor (in both b&w and color)</i>
+</div>
+
+#### point at (x=1277, y=1034):
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="feature_descriptors/bw_window_x1277_y1034.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/bw_descriptor_x1277_y1034.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_window_x1277_y1034.jpg" style="height: 200px"/>
+        <img src="feature_descriptors/colored_descriptor_x1277_y1034.jpg" style="height: 200px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>40x40 sample window vs 8x8 descriptor (in both b&w and color)</i>
+</div>
+
+### feature matching between two images
+
+we use the feature descriptors from both images and find the closest corresponding descriptors to match to each other. we implement section 5 of brown's paper in this part of the project. we also make use of lowe's trick for thresholding by setting the threshold to the ratio between the nearest and second-nearest neighbor.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="feature_matching/corresponding_points_41_matches.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>corresponding points between both images; # matched points: 41</i>
+</div>
+
+### 4-point random sample consensus (ransac)
+
+lowe's trick improves the matching process by reducing the number of outliers. however, we will evidently still have some outliers remaining which can really skew our calculations when finding the least-squares solution. just one pair of incorrect points can really mess up the homography matrix calculations. this is why we need to use ransac.
+
+the general idea of ransac:
+1. select four feature pairs (at random)
+2. compute homography H (exact)
+3. compute inliers where `dist(pi’, Hpi) < ε`
+4. keep largest set of inliers
+5. re-compute least-squares H estimate on all of the inliers
+
+we can see below that ransac does a really good job at eliminating the outliers:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="ransac/im_left_RANSAC.jpg" style="height: 350px"/>
+        <img src="ransac/im_mid_RANSAC.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>points matched by ransac are in red; you can see that this has significantly reduced the number of outliers, only keeping the ransac points</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/left_warped.jpg" style="height: 350px"/>
+        <img src="ransac/warped_left.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>warped image (by manual correspondence), warped image (by ransac)</i>
+</div>
+
+you can see that the homography **H** produced by ransac is pretty accurate as the warped image from both manually and automatically selected points are the same.
+
+### autostitching (putting everything together)
+
+#### heyns
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="heyns/blended_mosaic.jpg" style="height: 350px"/>
+        <img src="autostitch/heyns/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>heyns reading room with manual correspondences (left) vs automatic correspondences (right)</i>
+</div>
+
+you can see that the results are really good! they are basically identical. if we zoom in a little more, into both images, we can see that there are minor differences.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="autostitch/heyns/zoomed_manual.jpg" style="height: 350px"/>
+        <img src="autostitch/heyns/zoomed_auto.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>zoomed image of manual correspondence vs automatic correspondence</i>
+</div>
+
+you can see that the automatic correspondence points using all the techniques used in the second part of the project actually does a better job than manually selected points (as expected). in the image on the left (manual correspondences), there are some noticeable artifacts while there are none in the image on the right.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="autostitch/heyns/zoomed_manual2.jpg" style="height: 350px"/>
+        <img src="autostitch/heyns/zoomed_auto2.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>zoomed image of manual correspondence (left) vs automatic correspondence (right)</i>
+</div>
+
+#### tennis
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="tennis/blended_mosaic.jpg" style="height: 350px"/>
+        <img src="autostitch/tennis/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>tennis courts with manual correspondences (left) vs automatic correspondences (right)</i>
+</div>
+
+#### street view
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="street/blended_mosaic.jpg" style="height: 350px"/>
+        <img src="autostitch/street/mosaic.jpg" style="height: 350px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>street view with manual correspondences (left) vs automatic correspondences (right)</i>
+</div>
+
+## closing remarks
+
+this project encompasses many techniques we learned in our past assignmnets and combines them all into a single project. it is also quite fascinating to see how much can be done in image processing with just mathematics and smart tricks/techniques. 
+
+being able to automate the process of selecting correspondence points and stitching/blending the images together has been both satisfying and rewarding. :)
 
 <style>
     .image-gallery {
