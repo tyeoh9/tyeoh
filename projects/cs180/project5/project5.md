@@ -245,20 +245,37 @@ to do this, we:
 
 <div class="image-wrapper">
     <div class="image-container">
+        <img src="part_a/part7/gate.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
         <img src="part_a/part7/gate1.png" style="height: 110px"/>
         <img src="part_a/part7/gate3.png" style="height: 110px"/>
         <img src="part_a/part7/gate5.png" style="height: 110px"/>
         <img src="part_a/part7/gate7.png" style="height: 110px"/>
         <img src="part_a/part7/gate10.png" style="height: 110px"/>
         <img src="part_a/part7/gate20.png" style="height: 110px"/>
-        <img src="part_a/part7/gate.png" style="height: 110px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively + original</i>
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
 </div>
 
 ### rock
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7/rock.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
 
 <div class="image-wrapper">
     <div class="image-container">
@@ -268,11 +285,10 @@ to do this, we:
         <img src="part_a/part7/rock7.png" style="height: 110px"/>
         <img src="part_a/part7/rock10.png" style="height: 110px"/>
         <img src="part_a/part7/rock20.png" style="height: 110px"/>
-        <img src="part_a/part7/rock.png" style="height: 110px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively + original</i>
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
 </div>
 
 ## editing hand-drawn and web images
@@ -283,20 +299,37 @@ we can try the same thing with images from the web and our own drawings
 
 <div class="image-wrapper">
     <div class="image-container">
+        <img src="part_a/part7_1/drake_drawing.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
         <img src="part_a/part7_1/web1.png" style="height: 110px"/>
         <img src="part_a/part7_1/web3.png" style="height: 110px"/>
         <img src="part_a/part7_1/web5.png" style="height: 110px"/>
         <img src="part_a/part7_1/web7.png" style="height: 110px"/>
         <img src="part_a/part7_1/web10.png" style="height: 110px"/>
         <img src="part_a/part7_1/web20.png" style="height: 110px"/>
-        <img src="part_a/part7_1/drake_drawing.png" style="height: 110px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively + original</i>
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
 </div>
 
 ### handrawn image 1: plane in the sky
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_1/draw_orig.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
 
 <div class="image-wrapper">
     <div class="image-container">
@@ -306,14 +339,22 @@ we can try the same thing with images from the web and our own drawings
         <img src="part_a/part7_1/draw7.png" style="height: 110px"/>
         <img src="part_a/part7_1/draw10.png" style="height: 110px"/>
         <img src="part_a/part7_1/draw20.png" style="height: 110px"/>
-        <img src="part_a/part7_1/draw_orig.png" style="height: 110px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively + original</i>
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
 </div>
 
 ### handrawn image 2: two lovely flowers
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_1/flower_orig.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
 
 <div class="image-wrapper">
     <div class="image-container">
@@ -323,12 +364,154 @@ we can try the same thing with images from the web and our own drawings
         <img src="part_a/part7_1/flower_7.png" style="height: 110px"/>
         <img src="part_a/part7_1/flower_10.png" style="height: 110px"/>
         <img src="part_a/part7_1/flower_20.png" style="height: 110px"/>
-        <img src="part_a/part7_1/flower_orig.png" style="height: 110px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively + original</i>
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
 </div>
+
+## inpainting
+
+using the same procedure, we can perform inpainting which follows the [RePaint](https://arxiv.org/abs/2201.09865) paper. to do this, we create a mask over an area of the image and set it to 1 (the portion we want to edit/generate new content) and 0 elsewhere. we then run the diffusion denoising loop. but, for every step, we force the original image where mask, **m**, is 0.
+
+### campanile
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_2/test_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_2/test_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_2/test_replace.png" style="height: 170px"/>
+        <img src="part_a/part7_2/test_inpaint3.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill, inpainted</i>
+</div>
+
+### sather gate
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_2/1_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_2/1_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_2/1_replace.png" style="height: 170px"/>
+        <img src="part_a/part7_2/1_inpaint.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill, inpainted</i>
+</div>
+
+### rock
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_2/2_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_2/2_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_2/2_replace.png" style="height: 170px"/>
+        <img src="part_a/part7_2/2_inpaint.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill, inpainted</i>
+</div>
+
+i had to run the diffusion model a couple of times since it was not trained for this specific task. after a few tries, i got some nice results!
+
+## text-conditioned image-to-image translation
+
+we can do the same thing but instead of giving it the prompt "a high quality photo", we can use different prompts! this will guide the projection of the generated image rather than just a projection onto the natural image manifold.
+
+we use different noise levels for each prompt [1, 3, 5, 7, 10, 20] which should give us an image that is a closer representation of the original image the higher up we go.
+
+### prompt: "a rocket ship"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/test_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_3/test_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_3/test_replace.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/test_1.png" style="height: 110px"/>
+        <img src="part_a/part7_3/test_3.png" style="height: 110px"/>
+        <img src="part_a/part7_3/test_5.png" style="height: 110px"/>
+        <img src="part_a/part7_3/test_7.png" style="height: 110px"/>
+        <img src="part_a/part7_3/test_10.png" style="height: 110px"/>
+        <img src="part_a/part7_3/test_20.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) noise_level = 1, 3, 5, 7, 10, 20</i>
+</div>
+
+### prompt: "a man wearing a hat"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/gate_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_3/gate_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_3/gate_replace.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/gate_1.png" style="height: 110px"/>
+        <img src="part_a/part7_3/gate_3.png" style="height: 110px"/>
+        <img src="part_a/part7_3/gate_5.png" style="height: 110px"/>
+        <img src="part_a/part7_3/gate_7.png" style="height: 110px"/>
+        <img src="part_a/part7_3/gate_10.png" style="height: 110px"/>
+        <img src="part_a/part7_3/gate_20.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) noise_level = 1, 3, 5, 7, 10, 20</i>
+</div>
+
+this one is slightly harder to tell, especially for higher noise levels, due to the mask being smaller compared to the rocket ship. it is expected that for higher noise levels that the figure of the man slowly disappears since it is meant to resemble the original picture more and more. 
+
+however, we do see int he first few images that we get a figure standing in the center of the image - almost as if they are posing for a picture under sather gate!
+
+it is really hard to tell if the man is actually wearing a hat due to the scale of the images.
+
+### prompt: "a pencil"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/chapstick_orig.png" style="height: 170px"/>
+        <img src="part_a/part7_3/chapstick_mask.png" style="height: 170px"/>
+        <img src="part_a/part7_3/chapstick_replace.png" style="height: 170px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) original, mask, hole to fill</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_3/chapstick_1.png" style="height: 110px"/>
+        <img src="part_a/part7_3/chapstick_3.png" style="height: 110px"/>
+        <img src="part_a/part7_3/chapstick_5.png" style="height: 110px"/>
+        <img src="part_a/part7_3/chapstick_7.png" style="height: 110px"/>
+        <img src="part_a/part7_3/chapstick_10.png" style="height: 110px"/>
+        <img src="part_a/part7_3/chapstick_20.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>(left to right) noise_level = 1, 3, 5, 7, 10, 20</i>
+</div>
+
+overall, good results!
 
 <style>
     .image-gallery {
