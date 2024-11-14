@@ -162,6 +162,24 @@ to achieve this, we use equations 6 and 7 from the [ddpm paper](https://arxiv.or
 
 in this part, i implement the `iterative_denoise(image, i_start)` function which takes a noisy image `image`, and a starting index `i_start`. this function denoises an image starting at timestep `timestep[i_start]`.
 
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part4/formula.png" style="height: 80px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>iterative denoising formula</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part4/vars.png" style="height: 200px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>variables</i>
+</div>
+
 below are results of the noisy images of the campanile every 5th loop of denoising (it should gradually become less noisy the smaller t is)
 
 ### noisy campanile images with iterative denoising 
@@ -240,6 +258,15 @@ now, let's try to take an original test image, noise it a little and force it ba
 to do this, we:
 1. run the forward process to get a noisy test image
 2. run `iterative_denoise_cfg` function using a starting index of [1, 3, 5, 7, 10, 20] steps. the result should be a series of "edits" to the original image which matches the original image closer and closer as `i_start` grows big.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7_2/eq.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>force image x_t to have same pixels as x_orig where m=0</i>
+</div>
 
 ### sather gate
 
@@ -512,6 +539,137 @@ it is really hard to tell if the man is actually wearing a hat due to the scale 
 </div>
 
 overall, good results!
+
+## visual angrams
+
+one cool thing we can do with diffusion models is that we can create [visual angrams](https://dangeng.github.io/visual_anagrams/).
+
+to do this, we can denoise the image *x_t* with the first prompt, to obtain the first noise. we can then flip *x_t* upside down and denoise the next image to get the second noise. we then flip the second noise back, making sure it is upright. we then average both noises. lastly, perform denoising + diffusion.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/angrams.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>the full algorithm</i>
+</div>
+
+### prompts: "an oil painting of people around a campfire" + "an oil painting of an old man"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/man_campfire copy.png" style="height: 180px"/>
+        <img src="part_a/part8/man_campfire.png" style="height: 180px"/>
+    </div>
+</div>
+
+### prompts: "an oil painting of people around a campfire" + "an oil painting of an old man" (v2)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/man_campfire2 copy.png" style="height: 180px"/>
+        <img src="part_a/part8/man_campfire2.png" style="height: 180px"/>
+    </div>
+</div>
+
+### prompts: "an oil painting of people around a campfire" + "a photo of a dog"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/campfire_dog.png" style="height: 180px"/>
+        <img src="part_a/part8/campfire_dog copy.png" style="height: 180px"/>
+    </div>
+</div>
+
+### prompts: "an oil painting of people around a campfire" + "a photo of a dog" (v2)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/campfire_dog2.png" style="height: 180px"/>
+        <img src="part_a/part8/campfire_dog2 copy.png" style="height: 180px"/>
+    </div>
+</div>
+
+### prompts: "an oil painting of a snowy mountain village" + "an oil painting of an old man"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/village_man.png" style="height: 180px"/>
+        <img src="part_a/part8/village_man copy.png" style="height: 180px"/>
+    </div>
+</div>
+
+### prompts: "an oil painting of a snowy mountain village" + "an oil painting of an old man" (v2)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part8/village_man2.png" style="height: 180px"/>
+        <img src="part_a/part8/village_man2 copy.png" style="height: 180px"/>
+    </div>
+</div>
+
+## hybrid images
+
+we can create hybrid images similar to the way above. to do this, we implement [factorized diffusion](https://arxiv.org/abs/2404.11615). 
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part9/eq.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>the full algorithm</i>
+</div>
+
+### prompt: "a lithograph of waterfalls" + "a lithograph of a skull" x2
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part9/waterfall_skull.png" style="height: 180px"/>
+        <img src="part_a/part9/waterfall_skull2.png" style="height: 60px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part9/waterfall_skull2.png" style="height: 180px"/>
+        <img src="part_a/part9/waterfall_skull2.png" style="height: 60px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>image zoomed in (waterfall) vs image zoomed out (skull)</i>
+</div>
+
+### prompt: "a peacock" + "a forest"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part9/forest_peacock.png" style="height: 180px"/>
+        <img src="part_a/part9/forest_peacock.png" style="height: 60px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>image zoomed in (forest) vs image zoomed out (peacock)</i>
+</div>
+
+### prompt: "a lithograph of an elephant" + "a lithograph of istanbul"
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part9/elphant_istanbul.png" style="height: 180px"/>
+        <img src="part_a/part9/elphant_istanbul.png" style="height: 60px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>image zoomed in (istanbul) vs image zoomed out (elephant)</i>
+</div>
+
+## reflection
+
+this project was incredible cool, especially the visual angrams. i feel like even for a human artist, it is quite hard to come up with these visual angrams but it takes the diffusion model just a couple of seconds. it is also really interesting what sorts of new content the diffusion model comes up with!
 
 <style>
     .image-gallery {
