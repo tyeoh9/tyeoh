@@ -627,7 +627,7 @@ we can create hybrid images similar to the way above. to do this, we implement [
 <div class="image-wrapper">
     <div class="image-container">
         <img src="part_a/part9/waterfall_skull.png" style="height: 180px"/>
-        <img src="part_a/part9/waterfall_skull2.png" style="height: 60px"/>
+        <img src="part_a/part9/waterfall_skull.png" style="height: 60px"/>
     </div>
 </div>
 <div class="image-wrapper">
