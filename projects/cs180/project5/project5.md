@@ -4,7 +4,9 @@ title: the power of diffusion models
 permalink: /projects/cs180/project5/
 ---
 
-## setup
+# part a: playing around with pre-trained diffusion models
+
+## overview
 
 for this project, we will be using the [deepfloyd if](https://huggingface.co/docs/diffusers/api/pipelines/deepfloyd_if) diffusion model. trained by *stability ai*, it is a two stage model where the first stage produces images of size *64 x 64* and second takes the outputs of the first stage as input to produce *256 x 256* sized images.
 
@@ -669,7 +671,122 @@ we can create hybrid images similar to the way above. to do this, we implement [
 
 ## reflection
 
-this project was incredible cool, especially the visual angrams. i feel like even for a human artist, it is quite hard to come up with these visual angrams but it takes the diffusion model just a couple of seconds. it is also really interesting what sorts of new content the diffusion model comes up with!
+part a of the project was incredible cool, especially the visual angrams. i feel like even for a human artist, it is quite hard to come up with these visual angrams but it takes the diffusion model just a couple of seconds. it is also really interesting what sorts of new content the diffusion model comes up with!
+
+# part b: training a diffusion model
+
+## overview
+
+now that we have played around with a pre-trained diffusion model, let's train our own!
+
+## training a single-step denoising UNet
+
+to begin, i will implement a simple one-step denoiser. we am to train a denoiser *D_theta* such that noisy image *z* is mapped to clean image *x*. we can do this by optimizing over L2 loss:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/l2.png" style="height: 40px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>L2 loss equation</i>
+</div>
+
+## implementing the UNet
+
+for this project, we will implement the denoise as a [UNET](https://arxiv.org/abs/1505.04597).
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/unet.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>unconditional UNet</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/unet_ops.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>standard UNet operations</i>
+</div>
+
+## training a denoiser with the UNet
+
+to do this, we generate training data pairs of (z, x) where x represents a clean MNIST digit. for each training batch, we generate z from x with the following noising process:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/noising_eq.png" style="height: 40px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>noising equation</i>
+</div>
+
+using this equation, we can add noise to MNIST digits with varying sigma values [0.0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0].
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/different_noises.png" style="height: 480px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>MNIST digits with varying levels of noise</i>
+</div>
+
+### training
+
+i first trained a denoiser to denoise noisy image z with `sigma=0.5` applied to a clean image x. this was done with the MNIST dataset via `torchvision.datasets.MNIST`, recommended batch size: 256, and trained for 5 epochs. the adam optimizer with learning rate of 1e-4 was used.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/training_losses_plot.png" style="height: 380px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>training loss curve</i>
+</div>
+
+the denoised results of the 1st and 5th epoch of the digits are the following:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/denoised_results_1_epoch.png" style="height: 380px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>results on digits from the test set after 1 epoch of training</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/denoised_results_5_epoch.png" style="height: 380px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>results on digits from the test set after 5 epochs of training</i>
+</div>
+
+you can see that the results from the digits after 5 epoch of training are sharper and less blurry compared to the digits with only 1 epoch of training. *this entire procedure took ~7 minutes to run on a Colab T4 GPU.*
+
+### out-of-distribution testing
+
+we trained the denoiser on `sigma=0.5`. let's see it in action with varying levels of sigmas. for the testing process, i used noises `sigma=[0.0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0]`.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_1/out_of_dist_testing.png" style="height: 240px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>results on digits from teh test set with varying nosie levels</i>
+</div>
+
+you can see that as the noise gets larger, the denoised output gets progressively worse. this is expected since it is harder for the denoiser to map back to the original, clean image.
 
 <style>
     .image-gallery {
