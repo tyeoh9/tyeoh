@@ -96,9 +96,9 @@ the classical way to denoise an image is to apply gaussian blurring on the image
 
 <div class="image-wrapper">
     <div class="image-container">
-        <img src="part_a/part2/denoised_250.png" style="height: 250px"/>
-        <img src="part_a/part2/denoised_500.png" style="height: 250px"/>
-        <img src="part_a/part2/denoised_750.png" style="height: 250px"/>
+        <img src="part_a/part2/denoised_250v2.png" style="height: 250px"/>
+        <img src="part_a/part2/denoised_500v2.png" style="height: 250px"/>
+        <img src="part_a/part2/denoised_750v2.png" style="height: 250px"/>
     </div>
 </div>
 <div class="image-wrapper">
