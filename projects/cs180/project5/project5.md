@@ -270,6 +270,31 @@ to do this, we:
     <i>force image x_t to have same pixels as x_orig where m=0</i>
 </div>
 
+### campanile
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7/campanile.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>original image</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_a/part7/campanile1.png" style="height: 110px"/>
+        <img src="part_a/part7/campanile3.png" style="height: 110px"/>
+        <img src="part_a/part7/campanile5.png" style="height: 110px"/>
+        <img src="part_a/part7/campanile7.png" style="height: 110px"/>
+        <img src="part_a/part7/campanile10.png" style="height: 110px"/>
+        <img src="part_a/part7/campanile20.png" style="height: 110px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>SDEdit with i_start=[1, 3, 5, 7, 10, 20] respectively</i>
+</div>
+
 ### sather gate
 
 <div class="image-wrapper">
@@ -783,7 +808,7 @@ we trained the denoiser on `sigma=0.5`. let's see it in action with varying leve
     </div>
 </div>
 <div class="image-wrapper">
-    <i>results on digits from teh test set with varying nosie levels</i>
+    <i>results on digits from the test set with varying noise levels</i>
 </div>
 
 you can see that as the noise gets larger, the denoised output gets progressively worse. this is expected since it is harder for the denoiser to map back to the original, clean image.
