@@ -813,6 +813,164 @@ we trained the denoiser on `sigma=0.5`. let's see it in action with varying leve
 
 you can see that as the noise gets larger, the denoised output gets progressively worse. this is expected since it is harder for the denoiser to map back to the original, clean image.
 
+## training a diffusion model
+
+instead of using the UNet to predict the clean image, we can instead use it to predict the noise.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/loss_eq.png" style="height: 40px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>loss equation for noise</i>
+</div>
+
+### adding time conditioning to UNet
+
+to implement the ddpm, we can inject timestep t into the architecture. 
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/conditioned_unet.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>conditioned UNet</i>
+</div>
+
+### training the unet
+
+we train the time-conditioned unet using the following approach. rather than predicting the clean image directly from a noisy image, we focus on estimating the amount of noise added to the image. in this process, we start with clean images, add noise to them, predict the added noise, and then calculate the loss by comparing it to the actual noise introduced.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/alg1.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>algorithm: training time-conditioned UNet</i>
+</div>
+
+we train with hidden dimension=64, batch_size=128, and over 20 epochs. we use an adam optimizer with an initial learning rate of 1e-3 and apply an exponential learning rate decay scheduler, stepping it every epoch.
+
+here are our training losses:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/steps_training_loss_curve.png" style="height: 480px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>training loss curve</i>
+</div>
+
+### sampling from the unet
+
+to sample from the unet, we use the following algorithm:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/alg2.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sampling algorithm for time-conditioned UNet</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/time_cond_epoch5.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sample at epoch 5</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/time_cond_epoch20.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sample at epoch 20</i>
+</div>
+
+we can see that the results after the 20th epoch comes out better than the results after the 5th epoch.
+
+### adding class conditioning to UNet
+
+our goal is to extend the time-conditioned unet by introducing class-conditioning, allowing it to generate images of specific digits. this involves embedding class information into the network at the same locations as the timestep data. we obtain class labels from the mnist dataset and feed a one-hot encoded vector for each class into the model. to ensure flexibility, we set the class conditioning vector to zero with a probability of p_uncond = 0.1, enabling the unet to operate independently of class information.
+
+here’s how the algorithm works:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/alg3.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>algorithm: trianing class-conditioned UNet</i>
+</div>
+
+### training the unet
+
+we train the time-conditioned unet using the following approach. rather than predicting the clean image directly from a noisy image, we focus on estimating the amount of noise added to the image. in this process, we start with clean images, add noise to them, predict the added noise, and then calculate the loss by comparing it to the actual noise introduced.
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/alg1.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>algorithm: training time-conditioned UNet</i>
+</div>
+
+here are our training losses:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/class_cond_loss_curve.png" style="height: 480px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>training loss curve</i>
+</div>
+
+### sampling from the unet
+
+to sample from the unet, we use the following algorithm:
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/alg4.png" style="height: 180px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sampling algorithm for class-conditioned UNet</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/class_cond_epoch5.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sample at epoch 5</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="part_b/part_2/class_cond_epoch20.png" style="height: 280px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sample at epoch 20</i>
+</div>
+
+we can see that the results after the 20th epoch comes out better than the results after the 5th epoch. specifically, for the 5th epoch, we can see that a 0 looks weird and a 9 looks funky as well.
+
+
 <style>
     .image-gallery {
         max-width: 100%;
