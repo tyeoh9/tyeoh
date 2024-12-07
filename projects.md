@@ -4,6 +4,10 @@ title: projects
 permalink: /projects/
 ---
 
+### [neural radiance fields (NeRF)](/projects/cs180/project6/project6.md)
+
+*preview image coming*
+
 ### [the power of diffusion models](/projects/cs180/project5/project5.md)
 
 *preview image coming*
