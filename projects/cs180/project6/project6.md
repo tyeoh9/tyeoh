@@ -137,6 +137,14 @@ let's see if things change if we slightly alter the parameters. for this part i:
 
 we see that the results are essentially the same! not much has changed.
 
+## part 2: fit a neural field from multi-view images
+
+through inverse rendering from multi-view calibrated images, we can represent 3d space using a neural radiance field. we will be using the lego scene from the [original NeRF paper](https://www.matthewtancik.com/nerf)
+
+### create rays from cameras
+
+
+
 <style>
     .image-gallery {
         max-width: 100%;
