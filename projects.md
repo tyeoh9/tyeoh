@@ -6,11 +6,25 @@ permalink: /projects/
 
 ### [neural radiance fields (NeRF)](/projects/cs180/project6/project6.md)
 
-*preview image coming*
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter125.jpg" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter350.jpg" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter750.jpg" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/final_render/final.gif" style="height: 150px"/>
+    </div>
+</div>
 
 ### [the power of diffusion models](/projects/cs180/project5/project5.md)
 
-*preview image coming*
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_orig.png" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_mask.png" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_replace.png" style="height: 150px"/>
+        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_inpaint3.png" style="height: 150px"/>
+    </div>
+</div>
 
 ### [image warping and mosaicing](/projects/cs180/project4/project4.md)
 
