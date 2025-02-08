@@ -64,6 +64,14 @@ permalink: /projects/
     </div>
 </div>
 
+### [build your own world (byow): an engine for generating explorable worlds](https://github.com/tyeoh9/BYOW)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/gameplay.gif"/>
+    </div>
+</div>
+
 ### [text classification application](/projects/text-app/text-app.md)
 
 <div class="image-wrapper">
