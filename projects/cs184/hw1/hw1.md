@@ -41,13 +41,29 @@ here are the results from basic/test4.svg at various sampling rates:
 
 <div class="image-wrapper">
     <div class="image-container">
-        <img src="task2_1.png" style="height: 260px"/>
-        <img src="task2_4.png" style="height: 260px"/>
-        <img src="task2_16.png" style="height: 260px"/>
+        <img src="task2_1.png" style="height: 380px"/>
     </div>
 </div>
 <div class="image-wrapper">
-    <i>sampling rate = [1, 4, 16], respectively</i>
+    <i>sampling rate = 1</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="task2_4.png" style="height: 380px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sampling rate = 4</i>
+</div>
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="task2_16.png" style="height: 380px"/>
+    </div>
+</div>
+<div class="image-wrapper">
+    <i>sampling rate = 16</i>
 </div>
 
 as expected, we can see that with a higher sampling rate, we are able to reduce aliasing. the image to the left (sample rate = 1) which is the default sampling rate, contains disjoint entities where the ones on the right are smoothly anti-aliased.
