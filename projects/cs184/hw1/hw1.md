@@ -41,9 +41,9 @@ here are the results from basic/test4.svg at various sampling rates:
 
 <div class="image-wrapper">
     <div class="image-container">
-        <img src="task2_1.png" style="height: 280px"/>
-        <img src="task2_4.png" style="height: 280px"/>
-        <img src="task2_16.png" style="height: 280px"/>
+        <img src="task2_1.png" style="height: 260px"/>
+        <img src="task2_4.png" style="height: 260px"/>
+        <img src="task2_16.png" style="height: 260px"/>
     </div>
 </div>
 <div class="image-wrapper">
