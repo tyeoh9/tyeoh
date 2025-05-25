@@ -4,6 +4,14 @@ title: projects
 permalink: /projects/
 ---
 
+### [non-photorealistic shader](https://github.com/tyeoh9/NPRRenderer)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/link.gif"/>
+    </div>
+</div>
+
 ### [neural radiance fields (NeRF)](/projects/cs180/project6/project6.md)
 
 <div class="image-wrapper">
