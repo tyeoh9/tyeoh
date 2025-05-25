@@ -4,7 +4,7 @@
 entries:
   - title: info
     entries:
-      - title: a place to post about my thoughts, myself, and my work
+      # - title: a place to post about my thoughts, myself, and my work
       - title: linkedin
         url: https://www.linkedin.com/in/yeoh
       - title: github page
@@ -17,15 +17,15 @@ entries:
   - title: projects
     url: projects
 
-  - title: timeline
-    url: timeline
+  # - title: timeline
+  #   url: timeline
 
   - title: resume
     url: resume
 
-  - title: all posts
-    post_list:
-      limit: 5
-      show_more: true
-      show_more_text: See archive...
-      show_more_url: archive.html
+  # - title: all posts
+  #   post_list:
+  #     limit: 5
+  #     show_more: true
+  #     show_more_text: See archive...
+  #     show_more_url: archive.html
