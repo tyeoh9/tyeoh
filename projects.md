@@ -4,6 +4,14 @@ title: projects
 permalink: /projects/
 ---
 
+### [gpt traffic monitor assistant](https://github.com/tyeoh9/GPT4oVisionTrafficMonitor)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/part2_ui.png"/>
+    </div>
+</div>
+
 ### [non-photorealistic shader](https://github.com/tyeoh9/NPRRenderer)
 
 <div class="image-wrapper">
