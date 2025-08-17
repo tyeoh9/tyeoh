@@ -2,15 +2,6 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: info
-    entries:
-      # - title: a place to post about my thoughts, myself, and my work
-      - title: linkedin
-        url: https://www.linkedin.com/in/yeoh
-      - title: github page
-        url: https://github.com/tyeoh9
-      - title: tyeoh@berkeley.edu
-
   - title: about me
     url: about
 
@@ -22,6 +13,14 @@ entries:
 
   - title: resume
     url: resume
+
+  - title: linkedin
+    url: https://www.linkedin.com/in/yeoh
+
+  - title: github
+    url: https://github.com/tyeoh9
+
+  - title: tyeoh@berkeley.edu
 
   # - title: all posts
   #   post_list:
