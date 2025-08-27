@@ -88,13 +88,13 @@ permalink: /projects/
     </div>
 </div>
 
-### [text classification application](/projects/text-app/text-app.md)
+<!-- ### [text classification application](/projects/text-app/text-app.md)
 
 <div class="image-wrapper">
     <div class="image-container">
         <img src="{{ site.baseurl }}/projects/text-app/screenshots/predictions_page.png"/>
     </div>
-</div>
+</div> -->
 
 <style>
     .image-gallery {
