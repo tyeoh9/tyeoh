@@ -4,6 +4,14 @@ title: projects
 permalink: /projects/
 ---
 
+### [inky: an ai writing companion that thinks alongside you](https://inky-254095790852.us-central1.run.app/)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="https://github.com/user-attachments/assets/1083258c-d780-4605-beeb-1c0df00c173d"/>
+    </div>
+</div>
+
 ### [gpt traffic monitor assistant](https://github.com/tyeoh9/GPT4oVisionTrafficMonitor)
 
 <div class="image-wrapper">
