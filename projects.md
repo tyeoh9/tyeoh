@@ -4,6 +4,14 @@ title: projects
 permalink: /projects/
 ---
 
+### [repometrics](https://github.com/tyeoh9/repometrics)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/repometrics.png"/>
+    </div>
+</div>
+
 ### [inky: an ai writing companion that thinks alongside you](https://inky-254095790852.us-central1.run.app/)
 
 <div class="image-wrapper">
