@@ -17,3 +17,4 @@ layout: home
 
 ### latest work
 - [inky](https://inky-254095790852.us-central1.run.app/)
+- [repometrics](https://github.com/tyeoh9/repometrics)
