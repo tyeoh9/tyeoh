@@ -4,7 +4,15 @@ title: projects
 permalink: /projects/
 ---
 
-### [repometrics](https://github.com/tyeoh9/repometrics)
+### [validate-llm: python package for catching unwanted LLM outputs](https://tyeoh9.github.io/llm-validation-framework/)
+
+<div class="image-wrapper">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/projects/validate-llm.png"/>
+    </div>
+</div>
+
+### [repometrics: cli tool to check repo health](https://github.com/tyeoh9/repometrics)
 
 <div class="image-wrapper">
     <div class="image-container">

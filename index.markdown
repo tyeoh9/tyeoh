@@ -16,5 +16,6 @@ layout: home
 - tyeoh@berkeley.edu
 
 ### latest work
-- [inky](https://inky-254095790852.us-central1.run.app/)
+- [validate-llm](https://tyeoh9.github.io/llm-validation-framework/)
 - [repometrics](https://github.com/tyeoh9/repometrics)
+- [inky](https://inky-254095790852.us-central1.run.app/)
