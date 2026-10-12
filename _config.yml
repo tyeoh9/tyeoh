@@ -21,12 +21,20 @@
 title: thomas yeoh
 email: tyeoh@berkeley.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Personal Website
+  master's student at uc irvine and berkeley eecs alum. software engineering,
+  backend systems, and machine learning.
 baseurl: /tyeoh/ # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://tyeoh9.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: tyeoh9
 
 favicon: "logo.png"
+
+# Link previews (LinkedIn, iMessage, Slack, etc.)
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /og.png
 
 # Build settings
 # theme: no-style-please

@@ -16,3 +16,7 @@ TheGraduate.png
 *.pt
 projects/cs180/project1/results/log.txt
 .DS_Store
+.gstack/
+
+# Generated from Resume.pdf by the Pages workflow
+resume.png

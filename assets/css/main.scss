@@ -1,0 +1,7 @@
+---
+---
+
+@import "no-style-please";
+
+// Keep visited links the same yellow as unvisited ones (dark mode inverts #0000ee to yellow)
+a:visited { color: #0000ee; }

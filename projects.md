@@ -4,158 +4,136 @@ title: projects
 permalink: /projects/
 ---
 
-### [validate-llm: python package for catching unwanted LLM outputs](https://tyeoh9.github.io/llm-validation-framework/)
+<p class="jump"><a href="#work">work</a><span class="sep">/</span><a href="#cv">computer vision</a></p>
 
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/validate-llm.png"/>
+<div class="grid">
+  <a class="card feature" href="https://clearoapp.com/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/clearo.png" alt="clearo" loading="lazy"/></div>
+    <div class="meta">
+      <span class="tag">new</span>
+      <span class="title">clearo</span>
+      <span class="desc">agentic marketplace through imessage</span>
     </div>
+  </a>
 </div>
 
-### [repometrics: cli tool to check repo health](https://github.com/tyeoh9/repometrics)
+<h3 id="work">work</h3>
 
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/repometrics.png"/>
+<div class="grid">
+  <a class="card" href="https://tyeoh9.github.io/llm-validation-framework/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/validate-llm.png" alt="validate-llm" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">validate-llm</span>
+      <span class="desc">python package for catching unwanted llm outputs</span>
     </div>
+  </a>
+  <a class="card" href="https://github.com/tyeoh9/repometrics">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/repometrics.png" alt="repometrics" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">repometrics</span>
+      <span class="desc">cli tool to check repo health</span>
+    </div>
+  </a>
+  <a class="card" href="https://inky-254095790852.us-central1.run.app/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/inky.gif" alt="inky" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">inky</span>
+      <span class="desc">an ai writing companion that thinks alongside you</span>
+    </div>
+  </a>
+  <a class="card" href="https://github.com/tyeoh9/GPT4oVisionTrafficMonitor">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/part2_ui.png" alt="gpt traffic monitor assistant" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">gpt traffic monitor assistant</span>
+    </div>
+  </a>
+  <a class="card" href="https://github.com/tyeoh9/NPRRenderer">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/link.gif" alt="non-photorealistic shader" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">non-photorealistic shader</span>
+    </div>
+  </a>
+  <a class="card" href="https://github.com/tyeoh9/BYOW">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/gameplay.gif" alt="build your own world" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">build your own world</span>
+      <span class="desc">an engine for generating explorable worlds</span>
+    </div>
+  </a>
 </div>
 
-### [inky: an ai writing companion that thinks alongside you](https://inky-254095790852.us-central1.run.app/)
+<h3 id="cv">computer vision</h3>
 
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="https://github.com/user-attachments/assets/1083258c-d780-4605-beeb-1c0df00c173d"/>
+<div class="grid centered">
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project6/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project6/part2/final_render/final.gif" alt="neural radiance fields" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">neural radiance fields</span>
     </div>
+  </a>
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project5/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_inpaint3.png" alt="the power of diffusion models" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">the power of diffusion models</span>
+    </div>
+  </a>
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project4/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project4/heyns/blended_mosaic.jpg" alt="image warping and mosaicing" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">image warping and mosaicing</span>
+    </div>
+  </a>
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project3/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project3/part3_results/morphed_kanye_thomas-ezgif.com-loop-count.gif" alt="face morphing" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">face morphing</span>
+    </div>
+  </a>
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project2/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project2/results/blending/oraple.jpg" alt="convolutions, filters, and frequencies" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">convolutions, filters, and frequencies</span>
+    </div>
+  </a>
+  <a class="card" href="{{ site.baseurl }}/projects/cs180/project1/">
+    <div class="thumb"><img src="{{ site.baseurl }}/projects/cs180/project1/results/harvesters/after_harvesters.jpg" alt="colorizing the prokudin-gorskii collection" loading="lazy"/></div>
+    <div class="meta">
+      <span class="title">colorizing the prokudin-gorskii collection</span>
+    </div>
+  </a>
 </div>
-
-### [gpt traffic monitor assistant](https://github.com/tyeoh9/GPT4oVisionTrafficMonitor)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/part2_ui.png"/>
-    </div>
-</div>
-
-### [non-photorealistic shader](https://github.com/tyeoh9/NPRRenderer)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/link.gif"/>
-    </div>
-</div>
-
-### [neural radiance fields (NeRF)](/projects/cs180/project6/project6.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter125.jpg" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter350.jpg" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/nerf_output/iter750.jpg" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project6/part2/final_render/final.gif" style="height: 150px"/>
-    </div>
-</div>
-
-### [the power of diffusion models](/projects/cs180/project5/project5.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_orig.png" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_mask.png" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_replace.png" style="height: 150px"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project5/part_a/part7_2/test_inpaint3.png" style="height: 150px"/>
-    </div>
-</div>
-
-### [image warping and mosaicing](/projects/cs180/project4/project4.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project4/heyns/blended_mosaic.jpg"/>
-    </div>
-</div>
-
-### [face morphing](/projects/cs180/project3/project3.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project3/kanye.jpg"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project3/part3_results/morphed_kanye_thomas-ezgif.com-loop-count.gif"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project3/thomas.jpg"/>
-    </div>
-</div>
-
-### [convolutions, filters, and frequencies](/projects/cs180/project2/project2.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project2/results/blending/apple.jpeg"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project2/results/blending/orange.jpeg"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project2/results/blending/oraple.jpg"/>
-    </div>
-</div>
-
-### [colorizing the prokudin-gorskii photo collection](/projects/cs180/project1/project1.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/cs180/project1/results/harvesters/original_harvesters.jpg"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project1/results/harvesters/before_harvesters.jpg"/>
-        <img src="{{ site.baseurl }}/projects/cs180/project1/results/harvesters/after_harvesters.jpg"/>
-    </div>
-</div>
-
-### [build your own world (byow): an engine for generating explorable worlds](https://github.com/tyeoh9/BYOW)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/gameplay.gif"/>
-    </div>
-</div>
-
-<!-- ### [text classification application](/projects/text-app/text-app.md)
-
-<div class="image-wrapper">
-    <div class="image-container">
-        <img src="{{ site.baseurl }}/projects/text-app/screenshots/predictions_page.png"/>
-    </div>
-</div> -->
 
 <style>
-    .image-gallery {
-        max-width: 100%;
-        overflow-x: auto;
-        text-align: center;
-    }
-    
-    .image-container {
-        display: inline-flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px;
-        max-width: 100%;
-        text-align: center;
-    }
-    
-    .image-container img {
-        height: 220px; /* Adjust this value as needed */
-        width: auto;
-        object-fit: contain;
-    }
-    
-    .image-wrapper {
-        text-align: center; Ensures everything inside is centered
-        width: 100%;
-    }
-
-    @media (max-width: 768px) {
-        .image-container {
-        flex-direction: column;
-        align-items: center;
-        }
-        
-        .image-container img {
-        max-width: 100%;
-        height: auto;
-        }
-    }
+  .w { max-width: 880px; }
+  .jump { margin-top: -0.5rem; }
+  .sep { color: #aaa; margin: 0 0.6rem; }
+  h3 { margin: 3.5rem 0 1.25rem; padding-bottom: 0.4rem; border-bottom: 1px solid #ddd; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .card { display: flex; flex-direction: column; border: 1px solid #ddd; text-decoration: none; transition: border-color 0.15s; }
+  .card:hover { border-color: #888; }
+  .thumb { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid #ddd; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+  @supports not (aspect-ratio: 1 / 1) {
+    .thumb { position: relative; height: 0; padding-top: 62.5%; }
+    .thumb img { position: absolute; top: 0; left: 0; }
+  }
+  .meta { padding: 0.8rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .title { font-weight: bold; text-decoration: underline; }
+  .desc { color: #666; font-size: 0.9em; line-height: 1.4; }
+  .centered .thumb img { object-position: center; }
+  .feature { grid-column: 1 / -1; flex-direction: row; }
+  .feature .thumb { flex: 3; border-bottom: 0; border-right: 1px solid #ddd; }
+  .feature .meta { flex: 2; justify-content: center; padding: 1.5rem; }
+  .feature .title { font-size: 1.4em; }
+  /* theme inverts the page in dark mode: #0000ee renders as the yellow link color */
+  .tag { align-self: flex-start; font-size: 0.8em; font-weight: bold; background: #0000ee; color: #fff; padding: 0.1rem 0.5rem; letter-spacing: 0.05em; }
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .feature { flex-direction: column; }
+    .feature .thumb { border-right: 0; border-bottom: 1px solid #ddd; }
+    .feature .meta { padding: 0.8rem 1rem 1rem; }
+  }
 </style>

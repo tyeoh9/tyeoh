@@ -38,6 +38,12 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       
+      - name: Render resume image from PDF
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+          pdftoppm -png -r 220 -singlefile Resume.pdf resume
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
