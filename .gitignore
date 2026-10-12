@@ -7,3 +7,12 @@ vendor
 _drafts
 Gemfile.lock
 .claude
+# Private / unlisted — kept locally, not published
+_posts/
+timeline.md
+archive.md
+KidsWithSanta.png
+TheGraduate.png
+*.pt
+projects/cs180/project1/results/log.txt
+.DS_Store
